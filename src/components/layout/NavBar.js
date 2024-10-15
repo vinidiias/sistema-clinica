@@ -2,11 +2,13 @@ import styles from './NavBar.module.css'
 import { RiMentalHealthFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 
+import logoUnioeste from '../../img/logoUnioeste.png'
+
 const NavBar = () => {
     return (
         <nav className={styles.nav}>
                 <Link to="/">
-                    <RiMentalHealthFill />
+                    <img src={logoUnioeste} alt="logo Unioeste" style={{width: '60px'}} />
                     <h1>Clínica</h1>
                 </Link>
                 <ul className={styles.list}>

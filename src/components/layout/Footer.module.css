@@ -4,7 +4,7 @@
     text-align: center;
     padding: .5em;
     width: 100%;
-    color: #000;
+    color: #535353;
 }
 
 .copy_right {
@@ -13,11 +13,11 @@
 
 .copy_right a {
     margin-right: .5em;
-    color: #000;
+    color: #535353;
     text-decoration: none;
     transition: 0.5s;
 }
 
 .copy_right a:hover {
-    color: #2291F1;
+    color: #000;
 }
