@@ -1,7 +1,17 @@
 .footer{
+    border-top: 1px solid #0000003a;
+    font-size: .75em;
     text-align: center;
-    padding: 1em;
+    padding: .5em;
     width: 100%;
-    background-color: #2291F1;
-    color: #fff;
+    color: #000;
+}
+.footer p {
+    margin-bottom: .15em;
+}
+
+.social_list a {
+    margin-right: .5em;
+    color: #000;
+    text-decoration: none;
 }

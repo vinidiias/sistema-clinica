@@ -10,6 +10,7 @@ import Contato from './components/pages/Contato';
 
 import Footer from "./components/layout/Footer";
 import ErrorPage from "./components/layout/ErrorPage";
+import Container from './components/layout/Container';
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -18,7 +19,9 @@ const AppRoutes = () => {
       element: (
         <>
           <NavBar />
-            <Login />
+            <Container customClass="height">
+              <Login />
+            </Container>
           <Footer />
         </>
       ),
@@ -29,7 +32,9 @@ const AppRoutes = () => {
       element: (
         <>
           <NavBar />
-            <About />
+            <Container customClass="height">
+              <About />
+            </Container>
           <Footer />
         </>
       ),
@@ -40,7 +45,9 @@ const AppRoutes = () => {
       element: (
         <>
           <NavBar />
-            <Contato />
+            <Container customClass="height">
+              <Contato />
+            </Container>
           <Footer />
         </>
       ),
@@ -51,7 +58,9 @@ const AppRoutes = () => {
       element: (
         <>
           <NavBar />
-            <Ficha />
+            <Container customClass="height">
+              <Ficha />
+            </Container>
           <Footer />
         </>
       ),
