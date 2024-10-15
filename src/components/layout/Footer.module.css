@@ -1,17 +1,23 @@
 .footer{
     border-top: 1px solid #0000003a;
-    font-size: .75em;
+    font-size: .78em;
     text-align: center;
     padding: .5em;
     width: 100%;
     color: #000;
 }
-.footer p {
-    margin-bottom: .15em;
+
+.copy_right {
+    margin-bottom: 5px;
 }
 
-.social_list a {
+.copy_right a {
     margin-right: .5em;
     color: #000;
     text-decoration: none;
+    transition: 0.5s;
+}
+
+.copy_right a:hover {
+    color: #2291F1;
 }

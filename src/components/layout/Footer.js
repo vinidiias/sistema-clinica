@@ -9,21 +9,15 @@ import { AiOutlineGlobal } from "react-icons/ai";
 const Footer = () => {
     return (
       <footer className={styles.footer}>
-        <p>Copyright &copy; 2024 Clínica de Psicologia Unioeste</p>
-        <div className={styles.social_list}>
-          <a href="">
-              <IoLogoWhatsapp />
-          </a>
-          <a href="">
-              <TiSocialInstagram />
-          </a>
-          <a href="">
-              <AiFillLinkedin />
-          </a>
-          <a href="">
-              <AiOutlineGlobal />
-          </a>
+        <div className={styles.copy_right}>
+          <p>&copy; 2024 Todos os Direitos Reservados</p>
+          <p style={{display: 'inline-block', marginRight:'5px'}}>Unioeste - Universidade Estadual do Oeste do Paraná</p>
+          <a href=""><IoLogoWhatsapp /></a>
+          <a href=""><TiSocialInstagram /></a>
+          <a href=""><AiFillLinkedin /></a>
+          <a href=""><AiOutlineGlobal /></a>
         </div>
+
       </footer>
     );
 }

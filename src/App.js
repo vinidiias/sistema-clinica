@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NavBar from './components/layout/NavBar';
 
 import Login from './components/pages/Login';
+import Home from './components/pages/Home';
 import Ficha from './components/pages/Ficha';
 import About from './components/pages/About';
 import Contato from './components/pages/Contato';
@@ -21,6 +22,19 @@ const AppRoutes = () => {
           <NavBar />
             <Container customClass="height">
               <Login />
+            </Container>
+          <Footer />
+        </>
+      ),
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/home',
+      element: (
+        <>
+          <NavBar />
+            <Container customClass="height">
+              <Home />
             </Container>
           <Footer />
         </>
