@@ -7,7 +7,6 @@
     font-size: .9em;
     font-weight: bold;
     margin-right: 5px;
-    margin-bottom: .4em;
 }
 
 .form_control input {
@@ -25,4 +24,12 @@
 .column {
     flex-direction: column;
     align-items: start;
+}
+
+.marginBottom_zero {
+    margin-bottom: 0;
+}
+
+.light label {
+    font-weight: 400;
 }

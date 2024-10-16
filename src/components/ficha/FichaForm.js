@@ -6,13 +6,20 @@ import Input from '../form/Input'
 import Select from '../form/Select'
 import Submit from '../form/Submit'
 import CheckBox from '../form/CheckBox'
+import Table from '../form/Table'
 
 const FichaForm = () => {
 
   const [selectedSchool, setSelectedSchool] = useState(null)
   const [selectedSexo, setSelectedSexo] = useState(null)
   const [selectedTurno, setSelectedTurno] = useState(null)
+  const [selectedDayOfWeek, setSelectedDayOfWeek] = useState(null)
+  const [selectedVinculo, setSelectedVinculo] = useState(null)
+  const [selectedTypeVinculo, setSelectedTypeVinculo] = useState(null)
+
+  const [showSetor, setShowSetor] = useState(false)
   const [showCurso, setShowCurso] = useState(false)
+  const [showTypeVinculo, setShowTypeVinculo] = useState(false)
 
   function handleSchoolChange(value) {
     const newSchool = selectedSchool === value ? null : value;
@@ -25,16 +32,64 @@ const FichaForm = () => {
     setSelectedSexo(selectedSexo === value ? null : value )
   }
 
-  function handleSetShowCurso(currentSchool) {
-    if (currentSchool === 'grad' || currentSchool === 'gradII') {
-        setShowCurso(true);
+  function handleDayOfWeekChange(value) {
+    const newDay = (selectedDayOfWeek === value ? null : value)
+
+    setSelectedDayOfWeek(newDay)
+  }
+
+  function handleTurnoChange(value) {
+    const newTurno = selectedTurno === value ? null : value;
+
+    setSelectedTurno(newTurno)
+  }
+
+  function handleVinculoChange(value) {
+    const newVinculo = selectedVinculo === value ? null : value;
+
+    setSelectedVinculo(newVinculo)
+    handleSetShowTypeVinculo(newVinculo)
+  }
+
+  function handleTypeVinculoChange(value) {
+    const newtTypeVinculo = selectedTypeVinculo === value ? null : value;
+
+    setSelectedTypeVinculo(newtTypeVinculo)
+    handleSetShowSetor(newtTypeVinculo)
+  }
+
+  function handleSetShowSetor(currentSetor) {
+    if (currentSetor === 'agente') {
+      setShowSetor(true);
     } else {
-        setShowCurso(false);
+      setShowSetor(false);
     }
-}
+  }
+
+  function handleSetShowTypeVinculo(currentVinculo) {
+    if (currentVinculo !== null) {
+      setShowTypeVinculo(true);
+    } else {
+      setShowTypeVinculo(false);
+    }
+  }
+
+  function handleSetShowCurso(currentSchool) {
+    if (currentSchool === "grad" || currentSchool === "gradII") {
+      setShowCurso(true);
+    } else {
+      setShowCurso(false);
+    }
+  }
+
+
+
+
     return (
       <form className={styles.ficha_form}>
-        <Input type="text" name="name" text="Nome" autoComplete="username" />
+        <div className={styles}>
+          <Input type="text" name="name" text="Nome" autoComplete="username" />
+        </div>
         <div className={styles.flex}>
           <Input type="number" name="age" text="Idade" />
           <Input type="date" name="date" text="Data de Nascimento" />
@@ -63,7 +118,7 @@ const FichaForm = () => {
           </div>
         </div>
         <div className={styles.flex}>
-          <Input type="number" name="ra" text="ra" />
+          <Input type="number" name="ra" text="RA" />
           <Input type="text" name="cpf" text="CPF" />
         </div>
         <div className={styles.flex}>
@@ -85,7 +140,7 @@ const FichaForm = () => {
           <Input type="number" name="AdressNumber" text="Número" />
         </div>
         <Input type="text" name="work" text="Profissão" />
-        <div className={styles.flex}>
+        <div style={{ marginBottom: "1em" }} className={styles.flex}>
           <p
             style={{
               fontSize: ".9em",
@@ -135,7 +190,7 @@ const FichaForm = () => {
               handleOnChange={handleSchoolChange}
             />
             {showCurso && (
-              <div>
+              <div style={{ marginTop: "1em" }}>
                 <div className={styles.flex}>
                   <Input type="text" name="curso" text="Curso" />
                   <Input type="text" name="periodo" text="Ano/período" />
@@ -154,25 +209,91 @@ const FichaForm = () => {
                     selected={selectedTurno}
                     name="morning"
                     text="Manhã"
-                    handleSetShowCurso={handleSetShowCurso}
-                    handleOnChange={handleSchoolChange}
+                    handleOnChange={handleTurnoChange}
                   />
                   <CheckBox
-                    selected={selectedSchool}
+                    selected={selectedTurno}
                     name="afternoon"
                     text="Tarde"
-                    handleOnChange={handleSchoolChange}
+                    handleOnChange={handleTurnoChange}
                   />
                   <CheckBox
-                    selected={selectedSchool}
+                    selected={selectedTurno}
                     name="night"
                     text="Noite"
-                    handleOnChange={handleSchoolChange}
+                    handleOnChange={handleTurnoChange}
                   />
                 </div>
               </div>
             )}
           </div>
+        </div>
+        <div>
+          <Table
+            selected={selectedDayOfWeek}
+            handleChange={handleDayOfWeekChange}
+          />
+        </div>
+        <div style={{marginBottom: '1em'}} className={styles.flex}>
+          <CheckBox
+            selected={selectedVinculo}
+            name="vinculo_unioeste"
+            text="Vínculo com a Unioeste:"
+            handleOnChange={handleVinculoChange}
+            customClass="bold"
+          />
+          {showTypeVinculo && (
+            <div className={styles.flex}>
+              <Input
+                customClass="marginBottom_zero light"
+                selected={selectedTypeVinculo}
+                handleOnChange={() => {
+                  handleTypeVinculoChange("docente");
+                }}
+                type="checkbox"
+                name="docente"
+                text="Docente"
+              />
+              <Input
+                customClass="marginBottom_zero light"
+                selected={selectedTypeVinculo}
+                handleOnChange={() => {
+                  handleTypeVinculoChange("agente");
+                }}
+                type="checkbox"
+                name="agente"
+                text="Agente"
+              />
+              <Input
+                customClass="marginBottom_zero light"
+                selected={selectedTypeVinculo}
+                handleOnChange={() => {
+                  handleTypeVinculoChange("student");
+                }}
+                type="checkbox"
+                name="student"
+                text="Acadêmico"
+              />
+              <Input
+                customClass="marginBottom_zero light"
+                selected={selectedTypeVinculo}
+                handleOnChange={() => {
+                  handleTypeVinculoChange("estagiario");
+                }}
+                type="checkbox"
+                name="estagiario"
+                text="Estagiário"
+              />
+            </div>
+          )}
+        </div>
+        {showSetor && (
+          <div>
+            <Input type="text" name="setor" text="Setor que trabalha" />
+          </div>
+        )}
+        <div>
+          <div></div>
         </div>
       </form>
     );
