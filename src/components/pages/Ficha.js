@@ -1,7 +1,8 @@
+import FichaForm from "../ficha/FichaForm"
 
 const Ficha = () => {
     return (
-        <h1>Ficha</h1>
+        <FichaForm />
     )
 }
 

@@ -1,21 +1,16 @@
 .form_control {
     display: flex;
-    margin-bottom: 1em;
+    align-items: center;
 }
 
 .form_control label {
     font-size: .9em;
-    font-weight: bold;
-    margin-right: 5px;
-    margin-bottom: .4em;
 }
 
 .form_control input {
     outline: none;
     border: none;
     border-radius: 3px;
-    padding: .3em 4em .3em .2em;
-    flex: 1;
 }
 
 .form_control input::placeholder{

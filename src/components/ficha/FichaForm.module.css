@@ -1,0 +1,16 @@
+.ficha_form {
+    padding: 1em;
+    background-color: gainsboro;
+}
+
+.flex {
+    display: flex;
+    column-gap: 10px;
+}
+
+.sex {
+    display: flex;
+    align-self: center;
+    margin-bottom: 1em;
+}
+

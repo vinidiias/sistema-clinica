@@ -1,9 +1,9 @@
 import styles from './Input.module.css'
 
-const Input = ({ type, name, text, handleOnChange, placeholder, value}) => {
+const Input = ({ type, name, text, handleOnChange, placeholder, value, autoComplete, customClass}) => {
     return (
-      <div className={styles.form_control}>
-        <label htmlFor={name}>{text}</label>
+      <div className={`${styles.form_control} ${styles[customClass]}`}>
+        <label htmlFor={name}>{text}:</label>
         <input
           type={type}
           name={name}
@@ -11,6 +11,7 @@ const Input = ({ type, name, text, handleOnChange, placeholder, value}) => {
           placeholder={placeholder}
           onChange={handleOnChange}
           value={value}
+          autoComplete={ '' | autoComplete }
         />
       </div>
     )

@@ -18,12 +18,14 @@ const LoginForm = ({ handleSubmit }) => {
           name="name"
           text="Nome:"
           placeholder="Digite seu nome"
+          customClass="column"
         />
         <Input
           type="password"
           name="password"
           text="Senha:"
           placeholder="Digite sua senha"
+          customClass="column"
         />
         <div className={styles.form_submit}>
           <Submit text="Entrar" />
