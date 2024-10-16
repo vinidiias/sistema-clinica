@@ -1,5 +1,4 @@
 import styles from './LoginForm.module.css'
-
 import Input from '../form/Input'
 import Submit from '../form/Submit'
 
@@ -26,7 +25,10 @@ const LoginForm = ({ handleSubmit }) => {
           text="Senha:"
           placeholder="Digite sua senha"
         />
-        <Submit text="Entrar" />
+        <div className={styles.form_submit}>
+          <Submit text="Entrar" />
+          <Submit text="Criar conta" />
+        </div>
       </form>
     );
 }

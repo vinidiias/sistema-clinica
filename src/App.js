@@ -20,7 +20,7 @@ const AppRoutes = () => {
       element: (
         <>
           <NavBar />
-            <Container customClass="height">
+            <Container customClass="align">
               <Login />
             </Container>
           <Footer />

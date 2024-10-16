@@ -1,24 +1,19 @@
 .nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 1em;
     width: 100%;
-    background-color: #2291F1;
+    background-color: #483768;
     color: #fff;
 }
 
 .nav a {
-    font-weight: boldA;
+    font-weight: bold;
     display: flex;
     align-items: center;
-    flex: 1;
     text-decoration: none;
     color: #fff;
-}
-
-.nav svg {
-    font-size: 1.5em;
-    margin-right: .5em;
 }
 
 .list {

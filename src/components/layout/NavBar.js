@@ -1,5 +1,4 @@
 import styles from './NavBar.module.css'
-import { RiMentalHealthFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 
 import logoUnioeste from '../../img/logoUnioeste.png'

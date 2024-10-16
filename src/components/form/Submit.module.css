@@ -2,7 +2,7 @@
     font-weight: 500;
     border: none;
     color: #fff;
-    background-color: #1b71bb;
+    background-color: #B64667;
     font-size: .8em;
     padding: .2em .7em;
     border-radius: 2px;
@@ -11,6 +11,6 @@
 }
 
 .btn:hover{
-    background-color: #10426e;
+    background-color: #8a364f;
     color: #fff;
 }

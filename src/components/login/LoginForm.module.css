@@ -1,0 +1,4 @@
+.form_submit {
+    display: flex;
+    column-gap: 10px;
+}

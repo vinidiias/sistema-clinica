@@ -12,10 +12,10 @@ const Footer = () => {
         <div className={styles.copy_right}>
           <p>&copy; 2024 Todos os Direitos Reservados</p>
           <p style={{display: 'inline-block', marginRight:'5px'}}>Unioeste - Universidade Estadual do Oeste do Paraná</p>
-          <a href=""><IoLogoWhatsapp /></a>
-          <a href=""><TiSocialInstagram /></a>
-          <a href=""><AiFillLinkedin /></a>
-          <a href=""><AiOutlineGlobal /></a>
+          <a href="wa.me/5545991330882" target='_blank' rel="noopener noreferrer"><IoLogoWhatsapp /></a>
+          <a href="https://www.instagram.com/unioestepr/" target='_blank' rel="noopener noreferrer"><TiSocialInstagram /></a>
+          <a href="https://www.linkedin.com/school/unioeste1/?originalSubdomain=br" target='_blank' rel="noopener noreferrer"><AiFillLinkedin /></a>
+          <a href="https://www.unioeste.br/portal/" target='_blank' rel="noopener noreferrer"><AiOutlineGlobal /></a>
         </div>
 
       </footer>
