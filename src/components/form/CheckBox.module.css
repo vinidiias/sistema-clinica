@@ -2,14 +2,17 @@
     display: flex;
 }
 
-.form_control label {
-    font-size: .9em;
+.form_control h3 {
+    font-size: .7em;
+    font-weight: 400;
 }
 
 .form_control input {
     outline: none;
     border: none;
     border-radius: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .form_control input::placeholder{
@@ -31,4 +34,9 @@
 
 .align_start {
     align-items: start;
+}
+
+.label {
+    font-size: .8em;
+    font-weight: 500;
 }

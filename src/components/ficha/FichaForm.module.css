@@ -13,3 +13,13 @@
     align-self: center;
     margin-bottom: 1em;
 }
+
+.ficha_form textarea {
+    border-radius: 5px;
+}
+
+.label {
+    font-size: .8em;
+    font-weight: 500;
+    margin-right: 5px;
+  }

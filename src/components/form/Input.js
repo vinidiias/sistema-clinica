@@ -1,21 +1,29 @@
 import styles from './Input.module.css'
 
-const Input = ({ type, name, text, selected, handleOnChange, placeholder, value, autoComplete, customClass}) => {
+const Input = ({ id, type, name, text, title, isSelected, handleOnChange, placeholder, value, autoComplete, customClass}) => {
     return (
-      <div className={`${styles.form_control} ${customClass && customClass.split(' ').map(cls => styles[cls]).join(' ')}`}>
-        <label htmlFor={name}>{text}:</label>
+      <div
+        className={`${styles.form_control} ${
+          customClass &&
+          customClass
+            .split(" ")
+            .map((cls) => styles[cls])
+            .join(" ")
+        }`}
+      >
+        {text && <label htmlFor={name}>{text}:</label>}
         <input
           type={type}
           name={name}
-          checked = {selected === name}
-          id={name}
+          checked={isSelected}
+          id={id}
           placeholder={placeholder}
           onChange={handleOnChange}
           value={value}
-          autoComplete={ '' | autoComplete }
+          autoComplete={"" | autoComplete}
         />
       </div>
-    )
+    );
 }
 
 export default Input

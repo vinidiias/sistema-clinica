@@ -1,22 +1,23 @@
 import styles from './CheckBox.module.css'
 
-const CheckBox = ({ name, text, handleOnChange, handleSetShowCurso, placeholder, value, selected, customClass }) => {
+const CheckBox = ({ name, text, label, textLabel, handleOnChange, id, value, isSelected, customClass }) => {
 
     return (
       <div className={`${styles.form_control} ${styles[customClass]}`}>
         <input
           type="checkbox"
-          checked = {selected === name}
+          checked={isSelected}
           name={name}
-          id={name}
-          placeholder={placeholder}
-          onChange={() => handleOnChange(name)}
+          id={id}
+          onChange={() => handleOnChange(value)}
           value={value}
-          onClick={handleSetShowCurso}
         />
-        <label htmlFor={name}>{text}</label>
+        {text && <h3>{text}</h3>}
+        {label && <label htmlFor={label} className={styles.label}>
+            {textLabel}
+          </label>}
       </div>
-    )
+    );
 }
 
 export default CheckBox
