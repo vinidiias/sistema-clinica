@@ -19,3 +19,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.auto {
+    height: auto;
+    justify-content: center;
+}

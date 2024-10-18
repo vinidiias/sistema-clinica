@@ -72,7 +72,7 @@ const AppRoutes = () => {
       element: (
         <>
           <NavBar />
-            <Container customClass="height">
+            <Container customClass="auto">
               <Ficha />
             </Container>
           <Footer />
