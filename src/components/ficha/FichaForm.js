@@ -151,7 +151,7 @@ function handleWorkChange(value) {
           />
         </div>
         <div className={styles.flex}>
-          <Input type="number" name="age" text="Idade" />
+          <div><Input type="number" name="age" text="Idade" /></div>
           <Input type="date" name="date" text="Data de Nascimento" />
           <div className={styles.sex}>
             <label htmlFor="sexo-F" className={styles.label}>
@@ -356,7 +356,7 @@ function handleWorkChange(value) {
         )}
         <div style={{ marginBottom: "1em" }}>
           <CheckBox
-            isSelected={selectedCommunity === 'Comunidade Externa'}
+            isSelected={selectedCommunity === "Comunidade Externa"}
             side="right"
             name="community"
             value="Comunidade Externa"
@@ -370,7 +370,7 @@ function handleWorkChange(value) {
             Você trabalha?
           </label>
           <CheckBox
-            isSelected={selectedWork === 'Não trabalha'}
+            isSelected={selectedWork === "Não trabalha"}
             side="right"
             value="Não trabalha"
             handleOnChange={handleWorkChange}
@@ -388,11 +388,7 @@ function handleWorkChange(value) {
         </div>
         {showWork && (
           <div>
-            <Input
-              type="time"
-              name="work"
-              text="Trabalha em qual horário?"
-            />
+            <Input type="time" name="work" text="Trabalha em qual horário?" />
           </div>
         )}
         <div style={{ marginBottom: "1em" }} className={styles.flex}>
@@ -401,7 +397,7 @@ function handleWorkChange(value) {
           </label>
           <div className={styles.flex}>
             <CheckBox
-              isSelected={selectedPsycho === 'Não'}
+              isSelected={selectedPsycho === "Não"}
               side="right"
               value="Não"
               name="follow_psycho"
@@ -409,7 +405,7 @@ function handleWorkChange(value) {
               handleOnChange={handlePsychoChange}
             />
             <CheckBox
-              isSelected={selectedPsycho === 'Sim'}
+              isSelected={selectedPsycho === "Sim"}
               side="right"
               name="follow_psycho"
               value="Sim"
@@ -434,17 +430,17 @@ function handleWorkChange(value) {
           </label>
           <div className={styles.flex}>
             <CheckBox
-              isSelected={selectedPsychi === 'Não'}
+              isSelected={selectedPsychi === "Não"}
               side="right"
-              value='Não'
+              value="Não"
               name="follow_psychiatric"
               text="( ) Não"
               handleOnChange={handlePsychiChange}
             />
             <CheckBox
-              isSelected={selectedPsychi === 'Sim'}
-              side='right'
-              value='Sim'
+              isSelected={selectedPsychi === "Sim"}
+              side="right"
+              value="Sim"
               name="follow_psychiatric"
               text="( ) Sim"
               handleOnChange={handlePsychiChange}
