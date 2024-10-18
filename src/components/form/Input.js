@@ -1,6 +1,7 @@
 import styles from './Input.module.css'
 
-const Input = ({ type, name, text, isSelected, handleOnChange, placeholder, value, autoComplete, customClass}) => {
+const Input = ({ type, name, text, handleOnChange, placeholder, value, autoComplete, customClass}) => {
+  
     return (
       <div
         className={`${styles.form_control} ${
@@ -15,7 +16,6 @@ const Input = ({ type, name, text, isSelected, handleOnChange, placeholder, valu
         <input
           type={type}
           name={name}
-          checked={isSelected}
           id={name}
           placeholder={placeholder}
           onChange={handleOnChange}

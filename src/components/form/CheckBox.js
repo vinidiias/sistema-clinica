@@ -2,10 +2,12 @@ import styles from './CheckBox.module.css'
 
 const CheckBox = ({ name, text, side, handleOnChange, value, isSelected, customClass }) => {
 
+  const inputId = `${name}-${value}`;
+
     return (
       <div className={`${styles.form_control} ${styles[customClass]}`}>
         {side === "left" && (
-          <label htmlFor={name} className={styles.label_left}>
+          <label htmlFor={value} className={styles.label_left}>
             {text}
           </label>
         )}
@@ -13,12 +15,12 @@ const CheckBox = ({ name, text, side, handleOnChange, value, isSelected, customC
           type="checkbox"
           checked={isSelected}
           name={name}
-          id={value}
-          onChange={() => handleOnChange(name)}
+          id={inputId}
+          onChange={() => handleOnChange(value)}
           value={value | ''}
         />
         {side === "right" && (
-          <label htmlFor={value} className={styles.label_right}>
+          <label htmlFor={inputId} className={styles.label_right}>
             {text}
           </label>
         )}

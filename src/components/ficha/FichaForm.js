@@ -38,13 +38,13 @@ const FichaForm = () => {
   }
 
   function handleShowPsychi(currentPsychi){
-    if(currentPsychi === 'psychiatric') setShowPsychi(true)
+    if(currentPsychi === 'Sim') setShowPsychi(true)
       else setShowPsychi(false)
   }
 
 
   function handleShowPsycho(currentPsycho) {
-    if(currentPsycho === 'psychological') setShowPsycho(true)
+    if(currentPsycho === 'Sim') setShowPsycho(true)
     else setShowPsycho(false)
   }
 
@@ -63,7 +63,7 @@ const FichaForm = () => {
 }
 
 function handleShowWork(currentWork) {
-  if(currentWork === 'working') setShowWork(true)
+  if(currentWork === 'Trabalha') setShowWork(true)
   else setShowWork(false)
 }
 
@@ -120,9 +120,9 @@ function handleWorkChange(value) {
 
   function handleSetShowTypeVinculo(currentVinculo) {
     if (currentVinculo !== null) {
-      setShowTypeVinculo(true);
-    } else {
       setShowTypeVinculo(false);
+    } else {
+      setShowTypeVinculo(true);
     }
   }
 
@@ -155,6 +155,9 @@ function handleWorkChange(value) {
           <Input type="number" name="age" text="Idade" />
           <Input type="date" name="date" text="Data de Nascimento" />
           <div className={styles.sex}>
+            <label htmlFor="sexo-F" className={styles.label}>
+              Sexo:
+            </label>
             <CheckBox
               side="right"
               isSelected={selectedSexo === "F"}
@@ -198,13 +201,13 @@ function handleWorkChange(value) {
         </div>
         <Input type="text" name="work" text="Profissão" customClass="flex_1" />
         <div style={{ marginBottom: "1em" }} className={styles.flex}>
-          <label htmlFor="education" className={styles.label}>
+          <label htmlFor="education-Fundamental I" className={styles.label}>
             Escolaridade:
           </label>
           <div>
             <CheckBox
               isSelected={selectedSchool === "Fundamental I"}
-              name="fundamentalI"
+              name="education"
               side="right"
               text="Fundamental I"
               value="Fundamental I"
@@ -213,7 +216,7 @@ function handleWorkChange(value) {
             <CheckBox
               isSelected={selectedSchool === "Fundamental II"}
               side="right"
-              name="fundamentalII"
+              name="education"
               text="Fundamental II"
               value="Fundamental II"
               handleOnChange={handleSchoolChange}
@@ -221,14 +224,13 @@ function handleWorkChange(value) {
             <CheckBox
               isSelected={selectedSchool === "Ensino Médio"}
               side="right"
-              name="ensino_medio"
+              name="education"
               text="Ensino Médio"
               value="Ensino Médio"
               handleOnChange={handleSchoolChange}
             />
             <CheckBox
               isSelected={selectedSchool === "Ensino Técnico"}
-              id="education-4"
               side="right"
               name="education"
               text="Ensino Técnico"
@@ -237,7 +239,6 @@ function handleWorkChange(value) {
             />
             <CheckBox
               isSelected={selectedSchool === "Graduação"}
-              id="education-5"
               side="right"
               name="education"
               text="Graduação"
@@ -246,7 +247,6 @@ function handleWorkChange(value) {
             />
             <CheckBox
               isSelected={selectedSchool === "Pós Graduação"}
-              id="education-6"
               side="right"
               name="education"
               text="Pós Graduação"
@@ -264,24 +264,24 @@ function handleWorkChange(value) {
                     Turno do seu curso:
                   </label>
                   <CheckBox
-                    selected={selectedTurno === "Manhã"}
-                    id="course-1"
+                    isSelected={selectedTurno === "Manhã"}
+                    side="right"
                     value="Manhã"
                     name="course"
                     text="Manhã"
                     handleOnChange={handleTurnoChange}
                   />
                   <CheckBox
-                    selected={selectedTurno === "Tarde"}
-                    id="course-2"
+                    isSelected={selectedTurno === "Tarde"}
+                    side="right"
                     value="Tarde"
                     name="course"
                     text="Tarde"
                     handleOnChange={handleTurnoChange}
                   />
                   <CheckBox
-                    selected={selectedTurno === "Noite"}
-                    id="course-3"
+                    isSelected={selectedTurno === "Noite"}
+                    side="right"
                     value="Noite"
                     name="course"
                     text="Noite"
@@ -300,63 +300,47 @@ function handleWorkChange(value) {
         </div>
         <div style={{ marginBottom: "1em" }} className={styles.flex}>
           <CheckBox
-            selected={selectedVinculo === "Vínculo com Unioeste"}
-            id="vinculo"
+            customClass="bold"
+            isSelected={selectedVinculo === "Vínculo com Unioeste"}
+            side="right"
             value="Vínculo com Unioeste"
-            name="vinculo_unioeste"
+            name="vinculo_com_unioeste"
+            text="Vínculo com Unioeste:"
             handleOnChange={handleVinculoChange}
-            label="vinculo_unioeste"
-            textLabel="Vínculo com Unioeste:"
           />
           {showTypeVinculo && (
             <div className={styles.flex}>
-              <Input
-                customClass="marginBottom_zero light"
+              <CheckBox
                 isSelected={selectedTypeVinculo === "Docente"}
-                handleOnChange={() => {
-                  handleTypeVinculoChange("Docente");
-                }}
-                id="vinculo-1"
-                type="checkbox"
-                name="vinculo_unioeste"
-                title="Docente"
+                side="right"
                 value="Docente"
+                name="vinculo_com_unioeste"
+                text="Docente"
+                handleOnChange={handleTypeVinculoChange}
               />
-              <Input
-                customClass="marginBottom_zero light"
+              <CheckBox
                 isSelected={selectedTypeVinculo === "Agente"}
-                handleOnChange={() => {
-                  handleTypeVinculoChange("Agente");
-                }}
-                id="vinculo-2"
-                type="checkbox"
-                name="vinculo_unioeste"
-                title="Agente"
+                side="right"
                 value="Agente"
+                name="vinculo_com_unioeste"
+                text="Agente"
+                handleOnChange={handleTypeVinculoChange}
               />
-              <Input
-                customClass="marginBottom_zero light"
+              <CheckBox
                 isSelected={selectedTypeVinculo === "Acadêmico"}
-                handleOnChange={() => {
-                  handleTypeVinculoChange("Acadêmico");
-                }}
-                id="vinculo-3"
-                type="checkbox"
-                name="vinculo_unioeste"
-                title="Acadêmico"
+                side="right"
                 value="Acadêmico"
+                name="vinculo_com_unioeste"
+                text="Acadêmico"
+                handleOnChange={handleTypeVinculoChange}
               />
-              <Input
-                customClass="marginBottom_zero light"
+              <CheckBox
                 isSelected={selectedTypeVinculo === "Estagiário"}
-                handleOnChange={() => {
-                  handleTypeVinculoChange("Estagiário");
-                }}
-                id="vinculo-4"
-                type="checkbox"
-                name="vinculo_unioeste"
-                title="Estagiário"
+                side="right"
                 value="Estagiário"
+                name="vinculo_com_unioeste"
+                text="Estagiário"
+                handleOnChange={handleTypeVinculoChange}
               />
             </div>
           )}
@@ -364,7 +348,6 @@ function handleWorkChange(value) {
         {showSetor && (
           <div>
             <Input
-              id="1"
               type="text"
               name="setor"
               text="Setor que trabalha"
@@ -374,10 +357,12 @@ function handleWorkChange(value) {
         )}
         <div style={{ marginBottom: "1em" }}>
           <CheckBox
+            isSelected={selectedCommunity === 'Comunidade Externa'}
+            side="right"
             name="community"
+            value="Comunidade Externa"
             text="Comunidade Externa"
             customClass="bold"
-            selected={selectedCommunity}
             handleOnChange={handleCommunityChange}
           />
         </div>
@@ -386,14 +371,18 @@ function handleWorkChange(value) {
             Você trabalha?
           </label>
           <CheckBox
-            selected={selectedWork}
+            isSelected={selectedWork === 'Não trabalha'}
+            side="right"
+            value="Não trabalha"
             handleOnChange={handleWorkChange}
-            name="not_work"
+            name="work"
             text="( ) Não"
           />
           <CheckBox
-            selected={selectedWork}
+            isSelected={selectedWork === "Trabalha"}
+            side="right"
             handleOnChange={handleWorkChange}
+            value="Trabalha"
             name="working"
             text="( ) Sim"
           />
@@ -402,60 +391,72 @@ function handleWorkChange(value) {
           <div>
             <Input
               type="time"
-              name="working"
+              name="work"
               text="Trabalha em qual horário?"
             />
           </div>
         )}
         <div style={{ marginBottom: "1em" }} className={styles.flex}>
-          <label htmlFor="psychological" className={styles.label}>
+          <label htmlFor="follow_psycho-Não" className={styles.label}>
             Já realizou algum acompanhamento psicológico?
           </label>
-          <CheckBox
-            selected={selectedPsycho}
-            handleOnChange={handlePsychoChange}
-            name="not_psychological"
-            text="( ) Não"
-          />
-          <CheckBox
-            selected={selectedPsycho}
-            handleOnChange={handlePsychoChange}
-            name="psychological"
-            text="( ) Sim"
-          />
+          <div className={styles.flex}>
+            <CheckBox
+              isSelected={selectedPsycho === 'Não'}
+              side="right"
+              value="Não"
+              name="follow_psycho"
+              text="( ) Não"
+              handleOnChange={handlePsychoChange}
+            />
+            <CheckBox
+              isSelected={selectedPsycho === 'Sim'}
+              side="right"
+              name="follow_psycho"
+              value="Sim"
+              text="( ) Sim"
+              handleOnChange={handlePsychoChange}
+            />
+          </div>
         </div>
         {showPsycho && (
           <div>
             <Input
               type="text"
-              name="following_psycho"
+              name="follow_psycho"
               text="Por quanto tempo acompanhamento psicológico?"
             />
           </div>
         )}
 
         <div style={{ marginBottom: "1em" }} className={styles.flex}>
-          <label htmlFor="psychiatric" className={styles.label}>
+          <label htmlFor="follow_psychiatric-Não" className={styles.label}>
             Já realizou algum acompanhamento psiquiátrico?
           </label>
-          <CheckBox
-            selected={selectedPsychi}
-            handleOnChange={handlePsychiChange}
-            name="not_psychiatric"
-            text="( ) Não"
-          />
-          <CheckBox
-            selected={selectedPsychi}
-            handleOnChange={handlePsychiChange}
-            name="psychiatric"
-            text="( ) Sim"
-          />
+          <div className={styles.flex}>
+            <CheckBox
+              isSelected={selectedPsychi === 'Não'}
+              side="right"
+              value='Não'
+              name="follow_psychiatric"
+              text="( ) Não"
+              handleOnChange={handlePsychiChange}
+            />
+            <CheckBox
+              isSelected={selectedPsychi === 'Sim'}
+              side='right'
+              value='Sim'
+              name="follow_psychiatric"
+              text="( ) Sim"
+              handleOnChange={handlePsychiChange}
+            />
+          </div>
         </div>
         {showPsychi && (
           <div>
             <Input
               type="text"
-              name="following_psychi"
+              name="follow_psychiatric"
               text="Por quanto tempo fez acompanhamento psiquiátrico?"
             />
           </div>
