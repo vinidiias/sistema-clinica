@@ -92,15 +92,14 @@ function handleWorkChange(value) {
 
   function handleTurnoChange(value) {
     const newTurno = selectedTurno === value ? null : value;
-
     setSelectedTurno(newTurno)
   }
 
   function handleVinculoChange(value) {
     const newVinculo = selectedVinculo === value ? null : value;
-
     setSelectedVinculo(newVinculo)
     handleSetShowTypeVinculo(newVinculo)
+
   }
 
   function handleTypeVinculoChange(value) {
@@ -120,9 +119,9 @@ function handleWorkChange(value) {
 
   function handleSetShowTypeVinculo(currentVinculo) {
     if (currentVinculo !== null) {
-      setShowTypeVinculo(false);
-    } else {
       setShowTypeVinculo(true);
+    } else {
+      setShowTypeVinculo(false);
     }
   }
 
@@ -300,8 +299,8 @@ function handleWorkChange(value) {
         </div>
         <div style={{ marginBottom: "1em" }} className={styles.flex}>
           <CheckBox
-            customClass="bold"
             isSelected={selectedVinculo === "Vínculo com Unioeste"}
+            customClass="bold"
             side="right"
             value="Vínculo com Unioeste"
             name="vinculo_com_unioeste"
