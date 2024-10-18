@@ -36,7 +36,12 @@
     align-items: start;
 }
 
-.label {
+.label_left {
     font-size: .8em;
     font-weight: 500;
+}
+
+.label_right {
+    font-size: .8em;
+    font-weight: 400;
 }

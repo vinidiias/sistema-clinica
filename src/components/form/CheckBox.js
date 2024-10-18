@@ -1,21 +1,27 @@
 import styles from './CheckBox.module.css'
 
-const CheckBox = ({ name, text, label, textLabel, handleOnChange, id, value, isSelected, customClass }) => {
+const CheckBox = ({ name, text, side, handleOnChange, value, isSelected, customClass }) => {
 
     return (
       <div className={`${styles.form_control} ${styles[customClass]}`}>
+        {side === "left" && (
+          <label htmlFor={name} className={styles.label_left}>
+            {text}
+          </label>
+        )}
         <input
           type="checkbox"
           checked={isSelected}
           name={name}
-          id={id}
-          onChange={() => handleOnChange(value)}
-          value={value}
+          id={value}
+          onChange={() => handleOnChange(name)}
+          value={value | ''}
         />
-        {text && <h3>{text}</h3>}
-        {label && <label htmlFor={label} className={styles.label}>
-            {textLabel}
-          </label>}
+        {side === "right" && (
+          <label htmlFor={value} className={styles.label_right}>
+            {text}
+          </label>
+        )}
       </div>
     );
 }

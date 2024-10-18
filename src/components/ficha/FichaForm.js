@@ -27,6 +27,7 @@ const FichaForm = () => {
   const [showSetor, setShowSetor] = useState(false)
   const [showCurso, setShowCurso] = useState(false)
   const [showTypeVinculo, setShowTypeVinculo] = useState(false)
+  const [input, setInput] = useState('')
 
 
   function handlePsychiChange(value) {
@@ -132,46 +133,50 @@ function handleWorkChange(value) {
       setShowCurso(false);
     }
   }
+
+  function handleChange(e) {
+    setInput(e.target.value)
+  }
+
     return (
       <form className={styles.ficha_form}>
         <div>
           <Input
-            id="name"
             type="text"
+            handleOnChange={handleChange}
             name="name"
             text="Nome"
             autoComplete="username"
             customClass="flex_1"
+            value={input}
           />
         </div>
         <div className={styles.flex}>
-          <Input id="age" type="number" name="age" text="Idade" />
-          <Input id="date" type="date" name="date" text="Data de Nascimento" />
+          <Input type="number" name="age" text="Idade" />
+          <Input type="date" name="date" text="Data de Nascimento" />
           <div className={styles.sex}>
             <CheckBox
+              side="right"
               isSelected={selectedSexo === "F"}
-              id="sexo"
               name="sexo"
               value="F"
-              label="sexoF"
-              textLabel="( )F"
+              text="( )F"
               handleOnChange={handleSexoChange}
               customClass="title"
             />
             <CheckBox
+              side="right"
               isSelected={selectedSexo === "M"}
-              id="sexo"
               name="sexo"
               value="M"
-              label="SexoM"
-              textLabel="( )M"
+              text="( )M"
               handleOnChange={handleSexoChange}
             />
           </div>
         </div>
         <div className={styles.flex}>
-          <Input id="ra" type="number" name="ra" text="RA" />
-          <Input id="cpf" type="text" name="cpf" text="CPF" />
+          <Input type="number" name="ra" text="RA" />
+          <Input type="text" name="cpf" text="CPF" />
         </div>
         <div className={styles.flex}>
           <Input
@@ -199,24 +204,24 @@ function handleWorkChange(value) {
           <div>
             <CheckBox
               isSelected={selectedSchool === "Fundamental I"}
-              id="education-1"
-              name="education"
+              name="fundamentalI"
+              side="right"
               text="Fundamental I"
               value="Fundamental I"
               handleOnChange={handleSchoolChange}
             />
             <CheckBox
               isSelected={selectedSchool === "Fundamental II"}
-              id="education-2"
-              name="education"
+              side="right"
+              name="fundamentalII"
               text="Fundamental II"
               value="Fundamental II"
               handleOnChange={handleSchoolChange}
             />
             <CheckBox
               isSelected={selectedSchool === "Ensino Médio"}
-              id="education-3"
-              name="education"
+              side="right"
+              name="ensino_medio"
               text="Ensino Médio"
               value="Ensino Médio"
               handleOnChange={handleSchoolChange}
@@ -224,6 +229,7 @@ function handleWorkChange(value) {
             <CheckBox
               isSelected={selectedSchool === "Ensino Técnico"}
               id="education-4"
+              side="right"
               name="education"
               text="Ensino Técnico"
               value="Ensino Técnico"
@@ -232,6 +238,7 @@ function handleWorkChange(value) {
             <CheckBox
               isSelected={selectedSchool === "Graduação"}
               id="education-5"
+              side="right"
               name="education"
               text="Graduação"
               value="Graduação"
@@ -240,6 +247,7 @@ function handleWorkChange(value) {
             <CheckBox
               isSelected={selectedSchool === "Pós Graduação"}
               id="education-6"
+              side="right"
               name="education"
               text="Pós Graduação"
               value="Pós Graduação"
